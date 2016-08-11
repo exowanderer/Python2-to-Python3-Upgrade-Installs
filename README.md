@@ -11,7 +11,7 @@ But, you **must** run (with Python2) `pip freeze > pip2_freeze.list` in the curr
 
 Usage:
 
-Python2: `pip freeze > pip2_freeze.list`
+Python2: `pip freeze > /path/to/pip2_freeze.list`
 
 **Install Python3**
 
