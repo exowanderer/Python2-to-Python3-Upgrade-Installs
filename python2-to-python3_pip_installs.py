@@ -30,19 +30,17 @@ if version[0] == '2':
     print('You must confirm [y/n] already upgraded to Python3')
     exit(-2)
 
-try:
-  from pandas     import read_csv
-except:
-  raise Exception, 'requires pandas; run pip install pandas'
-
-from sys        import argv, exit
-from subprocess import check_output, call
-
 which_pip = check_output(['/usr/bin/which','pip'])
 
 if which_pip[-1] == 10:
   # 10 corresponds to `'\n'`
   which_pip = which_pip[:-1]
+
+try:
+  from pandas import read_csv
+except:
+  print('Requires pandas; Script is now installing it\n')
+  call([which_pip, 'install', '--upgrade', 'pandas'])
 
 if len(argv) == 1:
   print('Usage: python python2-to-python3_pip_installs.py list\n')
