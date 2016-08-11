@@ -1,5 +1,9 @@
+from sys        import argv, exit, version
+from subprocess import check_output, call
+
+print('\n** Works best with converting Anaconda2 to Anaconda3 **\n')
+
 print('\n\n***BEFORE YOU RUN THIS CODE***\n\n')
-print('Did you first run `pip freeze > pip_freeze.list` in your terminal *USING* your python2 pip bin??')
 
 userInput =  input('Did you first run `pip freeze > pip2_freeze.list` in your terminal *USING* your python2 pip bin?? [y/n]')
 
@@ -12,7 +16,25 @@ else:
   print('You must confirm [y/n] that you first ran `pip freeze > pip2_freeze.list` in *this* directory terminal before using this script')
   exit(-2)
 
-from pandas     import read_csv
+if version[0] == '2':
+  userInput =  input('Did you already upgrade to Python3 [y/n]')
+  
+  if userInput.lower()[0] == 'y':
+    print('You probably need to add it to your path, because this instance is running in Python2')
+    print('Specifically: ' + version)
+    exit(-1)
+  elif userInput.lower()[0] == 'n':
+    print('You have to upgrade to Python3 or this script is will only upgrade your existing packages in Python2\n')
+    exit(-1)
+  else:
+    print('You must confirm [y/n] already upgraded to Python3')
+    exit(-2)
+
+try:
+  from pandas     import read_csv
+except:
+  raise Exception, 'requires pandas; run pip install pandas'
+
 from sys        import argv, exit
 from subprocess import check_output, call
 
@@ -20,7 +42,6 @@ which_pip = check_output(['/usr/bin/which','pip'])
 
 if which_pip[-1] == 10:
   # 10 corresponds to `'\n'`
-  print(True)
   which_pip = which_pip[:-1]
 
 if len(argv) == 1:
