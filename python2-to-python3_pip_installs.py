@@ -8,7 +8,7 @@ print('\n\n***BEFORE YOU RUN THIS CODE***\n\n')
 userInput =  input('Did you first run `pip freeze > pip2_freeze.list` in your terminal *USING* your python2 pip bin?? [y/n]')
 
 if userInput.lower()[0] == 'y':
-  continue
+  pass
 elif userInput.lower()[0] == 'n':
   print('You must first run `pip freeze > pip2_freeze.list` in *this* directory terminal before using this script')
   exit(-1)
