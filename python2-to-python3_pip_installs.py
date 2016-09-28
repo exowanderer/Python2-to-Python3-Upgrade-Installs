@@ -5,7 +5,7 @@ print('\n** Works best with converting Anaconda2 to Anaconda3 **\n')
 
 print('\n\n***BEFORE YOU RUN THIS CODE***\n\n')
 
-userInput =  input('Did you first run `pip freeze > pip2_freeze.list` in your terminal *USING* your python2 pip bin?? [y/n]')
+userInput =  input('Did you first run `pip freeze > pip2_freeze.list` in your terminal *USING* your python2 pip bin?? [y/n] ')
 
 if userInput.lower()[0] == 'y':
   pass
@@ -17,7 +17,7 @@ else:
   exit(-2)
 
 if version[0] == '2':
-  userInput =  input('Did you already upgrade to Python3 [y/n]')
+  userInput =  input('Did you already upgrade to Python3 [y/n] ')
   
   if userInput.lower()[0] == 'y':
     print('You probably need to add it to your path, because this instance is running in Python2')
