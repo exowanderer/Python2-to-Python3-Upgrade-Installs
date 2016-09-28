@@ -50,7 +50,7 @@ if len(argv) == 1:
 pipfreezelist = read_csv(argv[1])
 
 call([which_pip, 'install', '--upgrade', pipfreezelist2.columns[0].split('==')[0]])
-print pipfreezelist2.columns[0].split('==')[0]
+print(pipfreezelist2.columns[0].split('==')[0])
 
 for pipnow in pipfreezelist.values:
     call([which_pip, 'install', '--upgrade', pipnow[0].split('==')[0]])
