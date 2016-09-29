@@ -9,6 +9,8 @@ If you forgot, the script tries to do this for you.
 But, you **must** run (with Python2) `pip freeze > pip2_freeze.list` in the current working directory to use this script.
   -- this must be done with Python2 **BEFORE** install Python3
 
+[Note that if pip freeze does not work -- and you're using anaconda -- you may want to run `conda update`, which will likely tell you to run `conda update --prefix /path/to/anaconda2 anaconda`]
+
 Usage:
 
 Python2: `pip freeze > /path/to/pip2_freeze.list`
